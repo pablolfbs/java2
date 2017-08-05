@@ -32,7 +32,6 @@ class Test {
 //		System.out.println("\n");
 //		e.jogo();
 		
-		
 		new Console();
 	}
 }
