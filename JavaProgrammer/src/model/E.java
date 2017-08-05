@@ -43,26 +43,30 @@ public class E {
 		Scanner in = new Scanner(System.in);
 		Random rand = new Random();
 		int a;
-		int count = 0;
+		int countsize = 0;
 		int x = rand.nextInt(100);
 		System.out.println(x);
 		int i = 0;
 		System.out.println("Tente adivinhar o número!!");
 		System.out.println("Digite um número de 1 a 100");
-		a = in.nextInt();
-		if (a > x) {
-			System.out.println("Muito alto!!");
-			a = in.nextInt();
-			count++;
-		}
-		if (a < x) {
-			System.out.println("Muito baixo!!");
-			a = in.nextInt();
-			count++;
 
-		}
-		if (a == x) {
-			System.out.println("Parabéns!!!!");
-		}
+		do {
+			a = in.nextInt();
+			countsize++;
+
+			if (a > x) {
+				System.out.println("Muito alto!!");
+				System.out.println(countsize + " tentativa(s)");
+			}
+			if (a < x) {
+				System.out.println("Muito baixo!!");
+				System.out.println(countsize + " tentativa(s)");
+			}
+			if (a == x) {
+				System.out.println("Parabéns!!!!\n Você acertou em " + countsize + " tentativa(s).");
+			}
+		} while (a != x);
 	}
+
+	
 }
