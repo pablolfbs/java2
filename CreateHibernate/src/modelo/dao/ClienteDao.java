@@ -1,20 +1,20 @@
 package modelo.dao;
 
-import java.util.List;
-
-import javax.persistence.EntityManager;
-import javax.persistence.EntityManagerFactory;
-import javax.persistence.Persistence;
-
 import modelo.Cliente;
 
-public class ClienteDao {
+public class ClienteDao extends DaoGenerico<Cliente> {
 
 	private static ClienteDao instancia;
-	private EntityManager entityManager;
+	// private EntityManager entityManager;
 
+	/*
 	private ClienteDao() {
 		entityManager = getEntityManager();
+	}
+	*/
+	
+	private ClienteDao() {
+		
 	}
 
 	public static ClienteDao getInstancia() {
@@ -26,6 +26,7 @@ public class ClienteDao {
 		}
 	}
 
+	/*
 	private EntityManager getEntityManager() {
 		EntityManagerFactory factory = Persistence.createEntityManagerFactory("cadastrodb");
 
@@ -67,4 +68,5 @@ public class ClienteDao {
 		Cliente c = buscaPorId(id);
 		remove(c);
 	}
+	*/
 }
