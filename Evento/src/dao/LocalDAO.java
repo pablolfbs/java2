@@ -10,20 +10,29 @@ import javax.persistence.Query;
 import modelo.Local;
 
 public class LocalDAO {
-	
+
 	EntityManager manager;
 	EntityManagerFactory factory;
+
+//	public LocalDAO() {
+//		manager = getEntityManager();
+//	}
 
 	public EntityManager getEntityManager() {
 		factory = Persistence.createEntityManagerFactory("eventopu");
 		return factory.createEntityManager();
 	}
-	
+
 	public Local buscarPorId(Long id) {
-		manager.getTransaction().begin();
-		Local local = manager.find(Local.class, id);
-		manager.getTransaction().commit();
-		factory.close();
+		manager = getEntityManager();
+		Local local;
+		try {
+			manager.getTransaction().begin();
+			local = manager.find(Local.class, id);
+			manager.getTransaction().commit();
+		} finally {
+			factory.close();
+		}
 		return local;
 	}
 
@@ -40,6 +49,7 @@ public class LocalDAO {
 		}
 		return local;
 	}
+
 	public Local atualizar(Local local) {
 		manager = getEntityManager();
 		try {
@@ -53,9 +63,10 @@ public class LocalDAO {
 		}
 		return local;
 	}
-	
-	public Local remover(Local local) {
+
+	public Local remover(Long id) {
 		manager = getEntityManager();
+		Local local = manager.find(Local.class, id);
 		try {
 			manager.getTransaction().begin();
 			manager.remove(local);
@@ -67,14 +78,16 @@ public class LocalDAO {
 		}
 		return local;
 	}
-	
+
+	@SuppressWarnings("unchecked")
 	public List<Local> listarTodos() {
+		manager = getEntityManager();
 		manager.getTransaction().begin();
 		Query consulta = manager.createQuery("select local from Local local");
 		List<Local> locais = consulta.getResultList();
 		manager.getTransaction().commit();
 		factory.close();
-		return locais;		
+		return locais;
 	}
 
 }
