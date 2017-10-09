@@ -18,7 +18,6 @@ public class LojaTeste {
 		ProdutoDao pDao = ProdutoDao.getInstancia();
 		VendaDao vDao = VendaDao.getInstancia();
 		
-		/*
 		Produto p1 = new Produto();
 		p1.setNome("Caderno Caligrafia");
 		p1.setPreco(5.6);
@@ -34,10 +33,9 @@ public class LojaTeste {
 		cDao.persist(c);
 		pDao.persist(p1);
 		pDao.persist(p2);
-		*/
 		
 		
-		Cliente c = cDao.getById(Cliente.class, 1);
+		c = cDao.getById(Cliente.class, 1);
 		
 		List<Produto> produtos = new ArrayList<Produto>();
 		Produto p = pDao.getById(Produto.class, 2);
@@ -52,6 +50,8 @@ public class LojaTeste {
 		
 		vDao.persist(v);
 		
+		/*
+		 */
 	}
 
 }
