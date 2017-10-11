@@ -39,7 +39,7 @@ public class Venda {
 	@ManyToMany
 	@JoinTable(name = "vendas_produtos",
 			joinColumns = @JoinColumn(name = "id_venda"),
-			inverseJoinColumns = @JoinColumn(name = "id_produto"))
+			inverseJoinColumns = @JoinColumn(name = "cod_produto"))
 	private List<Produto> produtos;
 
 	public int getId() {
