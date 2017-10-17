@@ -7,9 +7,10 @@ public class TesteDao {
 
 	public static void main(String[] args) {
 
-//		TblDao h = TblDao.getInstancia();
+		TblDao h = TblDao.getInstancia();
 		
-//		Tbl tbl = new Tbl();
+		Tbl tbl = new Tbl();
+		
 //		tbl.setCliente("Pablo");
 //		tbl.setQtdHospedes(5);
 //		tbl.setCheckin("12/29/2017");
@@ -22,8 +23,9 @@ public class TesteDao {
 		
 //		h.persistir(tbl);
 
-//		 Tbl cliente = h.buscaPorId(Tbl.class, 2693);
-//		 h.remove(cliente);
+		Tbl cliente = h.buscaPorId(Tbl.class, 2695);
+//		System.out.println(cliente.getCliente());
+		h.remove(cliente);
 //
 //		List<Tbl> resultado = (List<Tbl>) h.buscaPorId(Tbl.class, 1);
 //
