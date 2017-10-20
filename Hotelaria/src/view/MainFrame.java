@@ -16,10 +16,10 @@ import javax.swing.JTextField;
 public class MainFrame extends JFrame {
 
 	public MainFrame() {
-		build();
+		buildMainFrame();
 	}
-
-	private void build() {
+	
+	public void buildMainFrame() {
 		setLayout(new GridBagLayout());
 		buildComponents();
 		setTitle("Hotelaria");

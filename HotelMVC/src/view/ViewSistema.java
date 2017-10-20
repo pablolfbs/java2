@@ -52,6 +52,8 @@ public class ViewSistema {
 		
 		janelaPrincipal.add(panel);
 		janelaPrincipal.pack();
+		janelaPrincipal.setLocationRelativeTo(null);
+		janelaPrincipal.setResizable(false);
 		janelaPrincipal.setVisible(true);
 	}
 	
@@ -59,10 +61,10 @@ public class ViewSistema {
 		JPanel panel = new JPanel();
 		
 		JLabel labelNome = new JLabel("Nome: ");
-		JTextField fieldNome = new JTextField(50);
+		JTextField fieldNome = new JTextField(20);
 		
 		JLabel labelEmail = new JLabel("E-mail: ");
-		JTextField fieldEmail = new JTextField(50);
+		JTextField fieldEmail = new JTextField(20);
 		
 		JButton botaoSalvar = new JButton("Gravar Reserva");
 		
@@ -86,9 +88,10 @@ public class ViewSistema {
 		panel.add(fieldEmail);
 		panel.add(botaoSalvar);
 
-		
 		janelaCadastro.add(panel);
 		janelaCadastro.pack();
+		janelaCadastro.setLocationRelativeTo(janelaPrincipal);
+		janelaCadastro.setResizable(false);
 		
 	}
 }
