@@ -53,6 +53,7 @@ public class ViewSistema {
 		janelaPrincipal.add(panel);
 		janelaPrincipal.pack();
 		janelaPrincipal.setLocationRelativeTo(null);
+		janelaPrincipal.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		janelaPrincipal.setResizable(false);
 		janelaPrincipal.setVisible(true);
 	}
