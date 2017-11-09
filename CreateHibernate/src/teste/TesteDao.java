@@ -40,19 +40,21 @@ public class TesteDao {
 		ClienteDao cDao = ClienteDao.getInstancia();
 		VendaDao vDao = VendaDao.getInstancia();
 		
-		Cliente c = cDao.buscaPorId(Cliente.class, 1);
+		Cliente c = cDao.buscaPorId(Cliente.class, 2);
 		
 		Venda v = new Venda();
 		v.setCliente(c);
-		v.setValor(700);
+		v.setValor(500);
 		
 		vDao.persistir(v);
 		
-		List<Venda> resultado = vDao.buscaPorCliente(1);
+		List<Venda> resultado = vDao.buscaPorCliente(2);
 		
 		for (Venda venda : resultado) {
-			System.out.println(venda.getCliente().getNome() + " | " + venda.getCliente().getEndereco() + " | " + venda.getValor());
+			System.out.println(venda.getCliente().getNome() + " | " +
+		venda.getCliente().getEndereco() + " | " + venda.getValor());
 		}
 		
 	}
+	
 }
