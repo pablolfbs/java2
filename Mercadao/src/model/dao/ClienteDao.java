@@ -106,12 +106,12 @@ public class ClienteDao {
 			stmt = connection.prepareStatement(sql);
 			stmt.setInt(1, cliente.getId());
 			
+			// Object clienteRetorno = stmt.executeQuery();
+
 			ResultSet rs = stmt.executeQuery();
 
 			while (rs.next()) {
 				cliente.setNome(rs.getString("nome"));
-				cliente.setCpf(rs.getString("cpf"));
-				cliente.setEndereco(rs.getString("endereco"));
 			}
 			return cliente;
 		} catch (SQLException e) {
