@@ -69,7 +69,6 @@ public class Teste {
 			System.out.println("Endereço: " + funcionario.getEndereco() + "\n");
 		}
 		
-		 */
 		
 		
 		ClienteDao cDao = new ClienteDao();
@@ -83,6 +82,18 @@ public class Teste {
 		System.out.println(c.getNome());
 		System.out.println(c.getCpf());
 
+		 */
+		
+		ProdutoDao pDao = new ProdutoDao();
+		
+		Produto p = new Produto();
+		
+		p.setCodigo(1);
+		
+		pDao.buscarPorCodigo(p);
+		
+		System.out.println(p.getNome());
+				
 	}
 
 }

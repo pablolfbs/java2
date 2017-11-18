@@ -1,17 +1,6 @@
 package teste;
 
-import java.sql.Connection;
-import java.sql.SQLException;
-import java.util.ArrayList;
-import java.util.Calendar;
-import java.util.List;
-
-import dao.ClienteDao;
-import dao.ConnectionFactory;
-import dao.ContatoDao;
 import dao.ProdutoDao;
-import model.Cliente;
-import model.Contato;
 import model.Produto;
 
 public class TesteConexao {
@@ -88,19 +77,19 @@ public class TesteConexao {
 	
 //	pDao.cadastrar(p);
 		
-		ClienteDao cDao = new ClienteDao();
-		
-		List<Cliente> clientes = cDao.listar();
-		
-		for (Cliente cliente : clientes) {
-			System.out.println("Id: " + cliente.getId());
-			System.out.println("Nome: " + cliente.getNome());
-			System.out.println("CPF: " + cliente.getCpf());
-			System.out.println("Endereço: " + cliente.getEndereco());
-			System.out.println("Telefone: " + cliente.getTelefone());
-		}
-	
-		Cliente c = new Cliente();
+//		ClienteDao cDao = new ClienteDao();
+//		
+//		List<Cliente> clientes = cDao.listar();
+//		
+//		for (Cliente cliente : clientes) {
+//			System.out.println("Id: " + cliente.getId());
+//			System.out.println("Nome: " + cliente.getNome());
+//			System.out.println("CPF: " + cliente.getCpf());
+//			System.out.println("Endereço: " + cliente.getEndereco());
+//			System.out.println("Telefone: " + cliente.getTelefone() + "\n");
+//		}
+//	
+//		Cliente c = new Cliente();
 		
 //		c.setNome("Ingrid");
 //		c.setCpf("13120910708");
@@ -117,6 +106,34 @@ public class TesteConexao {
 //		c.setTelefone("(21) 96561-8083");
 //		c.setId(2);
 //		cDao.atualizar(c);
+		
+//		ClienteDao cDao = new ClienteDao();
+//		
+//		Cliente c = new Cliente();
+//		c.setId(2);
+//		cDao.buscarPorId(c);
+//		System.out.println(c.getCpf());
+		
+//		ContatoDao cDao = new ContatoDao();
+//		
+//		Contato c = new Contato();
+//		
+//		c.setId((long) 2);
+//		
+//		cDao.buscarPorId(c);
+//		
+//		System.out.println(c.getNome());
+		
+		ProdutoDao pDao = new ProdutoDao();
+		
+		Produto p = new Produto();
+		
+		p.setId(4);
+		
+		pDao.buscarPorId(p);
+		
+		System.out.println(p.getNome());
+		
 		
 	}
 	

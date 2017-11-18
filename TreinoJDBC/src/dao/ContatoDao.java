@@ -71,6 +71,32 @@ public class ContatoDao {
 
 	}
 
+	public Contato buscarPorId(Contato c) {
+		String sql = "SELECT * FROM contatos WHERE id = ?;";
+
+		PreparedStatement ps;
+		try {
+			ps = connection.prepareStatement(sql);
+			ps.setLong(1, c.getId());
+			
+			ResultSet rs = ps.executeQuery();
+			
+			while (rs.next()) {
+				c.setNome(rs.getString("nome"));
+				c.setEmail(rs.getString("email"));
+				c.setEndereco(rs.getString("endereco"));
+				Calendar data = Calendar.getInstance();
+				data.setTime(rs.getDate("dataNascimento"));
+				c.setDataNascimento(data);
+			}
+			return c;
+			
+		} catch (SQLException e) {
+			throw new RuntimeException(e);
+		}
+
+	}
+
 	public void atualizar(Contato contato) {
 
 		String sql = "UPDATE contatos SET nome = ?, email = ?, endereco = ?, dataNascimento = ? WHERE id = ?;";
@@ -87,6 +113,7 @@ public class ContatoDao {
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
+		
 	}
 
 	public void deletar(Contato contato) {

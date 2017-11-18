@@ -4,6 +4,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -91,6 +92,29 @@ public class ProdutoDao {
 		} catch (SQLException e) {
 			throw new RuntimeException(e);
 		}
+		
+	}
+	
+	public Produto buscarPorCodigo(Produto produto) {
+		String sql = "SELECT * FROM produtos WHERE codigo = " + produto.getCodigo() + ";";
+		
+		try {
+			Statement stmt = connection.createStatement();
+			
+			ResultSet rs = stmt.executeQuery(sql);
+			
+			while (rs.next()) {
+				produto.setNome(rs.getString("nome"));
+				produto.setPreco(rs.getFloat("preco"));
+			}
+			rs.close();
+			stmt.close();
+			
+			return produto;
+		} catch (SQLException e) {
+			throw new RuntimeException(e);
+		}		
+		
 	}
 
 }

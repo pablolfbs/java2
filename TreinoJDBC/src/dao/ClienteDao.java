@@ -4,6 +4,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -89,6 +90,28 @@ public class ClienteDao {
 			throw new RuntimeException(e);
 		}
 
+	}
+	
+	public Cliente buscarPorId(Cliente c) {
+		String sql = "SELECT * FROM clientes WHERE id = " + c.getId() + ";";
+		
+		try {
+			Statement stmt = connection.createStatement();
+			
+			ResultSet rs = stmt.executeQuery(sql);
+			
+			while (rs.next()) {
+				c.setNome(rs.getString("nome"));
+				c.setCpf(rs.getString("cpf"));
+				c.setEndereco(rs.getString("endereco"));
+				c.setTelefone(rs.getString("telefone"));
+			}
+		return c;
+			
+		} catch (SQLException e) {
+			throw new RuntimeException(e);
+		}
+		
 	}
 
 	public void excluir(Cliente c) {

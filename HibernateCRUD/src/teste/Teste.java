@@ -19,7 +19,8 @@ public class Teste {
 //		c.setNome("Pablo");
 //		c.setCpf("07637049701");
 //		c.setTelefone("998761112");
-		cDAO.remove(Cliente.class, 2);
+//		cDAO.persist(c);
+		cDAO.remove(Cliente.class, 16);
 		
 		
 	}

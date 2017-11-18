@@ -5,8 +5,10 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.List;
 
+import model.Contato;
 import model.Produto;
 
 public class ProdutoDao {
@@ -71,6 +73,27 @@ public class ProdutoDao {
 			conn.close();
 
 			return produtos;
+
+		} catch (SQLException e) {
+			throw new RuntimeException(e);
+		}
+
+	}
+
+	public Produto buscarPorId(Produto p) {
+		String sql = "SELECT * FROM produtos WHERE id = ?;";
+
+		PreparedStatement ps;
+		try {
+			ps = connection.prepareStatement(sql);
+			ps.setInt(1, p.getId());
+
+			ResultSet rs = ps.executeQuery();
+
+			while (rs.next()) {
+				p.setNome(rs.getString("nome"));
+			}
+			return p;
 
 		} catch (SQLException e) {
 			throw new RuntimeException(e);
