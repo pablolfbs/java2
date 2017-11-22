@@ -4,6 +4,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -20,12 +21,13 @@ public class ProfessorDao {
 	}
 	
 	public void inserir(Professor professor) {
-		String sql = "INSERT INTO professores (nome) VALUES (?)";
+		String sql = "INSERT INTO professores (nome) VALUES (?, ?)";
 		
 		PreparedStatement stmt;
 		try {
 			stmt = connection.prepareStatement(sql);
-			stmt.setString(1, professor.getNome());
+			stmt.setInt(1, professor.getMatricula());
+			stmt.setString(2, professor.getNome());
 			stmt.execute();
 			stmt.close();
 			JOptionPane.showMessageDialog(null, "CADASTRADO COM SUCESSO");
@@ -48,6 +50,28 @@ public class ProfessorDao {
 			JOptionPane.showMessageDialog(null, "ATUALIZADO COM SUCESSO");
 		} catch (SQLException e) {
 			e.printStackTrace();
+		}
+		
+	}
+	
+	public Professor buscarPorMatricula(Professor p) {
+		String sql = "SELECT * FROM professores WHERE matricula = ?;";
+		
+		try {
+			PreparedStatement stmt = connection.prepareStatement(sql);
+			stmt.setInt(1, p.getMatricula());
+			
+			ResultSet rs = stmt.executeQuery();
+			
+			while (rs.next()) {
+				p.setNome(rs.getString("nome"));
+			}
+			rs.close();
+			stmt.close();
+			return p;
+			
+		} catch (SQLException e) {
+			throw new RuntimeException(e);
 		}
 		
 	}

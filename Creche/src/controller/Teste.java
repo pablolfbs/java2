@@ -65,13 +65,21 @@ public class Teste {
 		
 		
 		ProfessorDao pDao = new ProfessorDao();
+		Professor p = new Professor();
 		
-		List<Professor> professores = pDao.listar();
+		p.setMatricula(2);
+		pDao.buscarPorMatricula(p);
 		
-		for (Professor professor : professores) {
-			System.out.println("Matricula: " + professor.getMatricula());
-			System.out.println("Nome: " + professor.getNome());
-		}
+		System.out.println(p.getMatricula());
+		System.out.println(p.getNome());
+		
+		
+//		List<Professor> professores = pDao.listar();
+//		
+//		for (Professor professor : professores) {
+//			System.out.println("Matricula: " + professor.getMatricula());
+//			System.out.println("Nome: " + professor.getNome());
+//		}
 		
 	}
 

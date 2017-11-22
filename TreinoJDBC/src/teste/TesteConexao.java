@@ -128,7 +128,7 @@ public class TesteConexao {
 		
 		Produto p = new Produto();
 		
-		p.setId(4);
+		p.setId(2);
 		
 		pDao.buscarPorId(p);
 		
