@@ -1,6 +1,5 @@
 package teste;
 
-import model.Exemplo1;
 import threads.Contador;
 import threads.VerificadorEmail;
 
@@ -8,8 +7,8 @@ public class Teste {
 
 	public static void main(String[] args) {
 
-		Exemplo1 ex1 = new Exemplo1();
-		Exemplo2 ex2 = new Exemplo2();
+//		Exemplo1 ex1 = new Exemplo1();
+//		Exemplo2 ex2 = new Exemplo2();
 
 //		ex1.imprime();
 //		ex1.imprime();
