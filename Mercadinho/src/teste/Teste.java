@@ -82,7 +82,6 @@ public class Teste {
 		System.out.println(c.getNome());
 		System.out.println(c.getCpf());
 
-		 */
 		
 		ProdutoDao pDao = new ProdutoDao();
 		
@@ -93,7 +92,8 @@ public class Teste {
 		pDao.buscarPorCodigo(p);
 		
 		System.out.println(p.getNome());
-				
+		 */
+		
 	}
 
 }
