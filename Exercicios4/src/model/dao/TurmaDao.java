@@ -8,6 +8,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import model.Aluno;
+import model.Turma;
 
 public class TurmaDao {
 	
@@ -18,14 +19,16 @@ public class TurmaDao {
 	}
 	
 	public List<Aluno> listar() {
-		String sql = "SELECT * FROM alunos;";
+		String sql = "SELECT * FROM turma;";
 
 		Statement stmt;
 		try {
 			stmt = connection.createStatement();
 			ResultSet rs = stmt.executeQuery(sql);
 			
-			List<Aluno> turma = new ArrayList<>();
+			List<Aluno> alunos = new ArrayList<>();
+			
+			Turma turma = new Turma();
 			
 			while (rs.next()) {
 				Aluno a = new Aluno();
@@ -33,11 +36,12 @@ public class TurmaDao {
 				a.setNome(rs.getString("nome"));
 				a.setCurso(rs.getString("curso"));
 				a.setMedia(rs.getFloat("media"));
-				turma.add(a);
+				alunos.add(a);
+				turma.setAlunos(alunos);
 			}
 			rs.close();
 			stmt.close();
-			return turma;
+			return alunos;
 		} catch (SQLException e) {
 			throw new RuntimeException(e);
 		}

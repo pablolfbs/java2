@@ -1,5 +1,6 @@
 package controller;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import model.Aluno;
@@ -11,8 +12,8 @@ public class Teste {
 
 	public static void main(String[] args) {
 
-		AlunoDao aDao = new AlunoDao();
-		TurmaDao tDao = new TurmaDao();
+//		AlunoDao aDao = new AlunoDao();
+//		TurmaDao tDao = new TurmaDao();
 		
 //		Aluno a = aDao.cadastrar(6, "Carlos", "Filosofia", 9.5f);
 
@@ -35,49 +36,44 @@ public class Teste {
 //			System.out.println();
 //		}
 		
-		List<Aluno> turma = tDao.listar();
+		
+		/*
+		 * 
+		 * 
+		 * List<Aluno> turma = tDao.listar(); Turma t = new Turma();
+		 * 
+		 * t.setNome("Turma1"); System.out.println(t.getNome()); System.out.println();
+		 * 
+		 * for (Aluno aluno : turma) { System.out.println(aluno.getMatricula() + " - " +
+		 * aluno.getNome() + " - " + aluno.getCurso() + " - " + aluno.getMedia());
+		 * System.out.println(); }
+		 * 
+		 * turma = tDao.listarPorNome(); t = new Turma();
+		 * 
+		 * t.setNome("Turma1"); System.out.println(t.getNome()); System.out.println();
+		 * 
+		 * for (Aluno aluno : turma) { System.out.println(aluno.getMatricula() + " - " +
+		 * aluno.getNome() + " - " + aluno.getCurso() + " - " + aluno.getMedia());
+		 * System.out.println(); }
+		 * 
+		 * turma = tDao.listarPorMedia(); t = new Turma();
+		 * 
+		 * t.setNome("Turma1"); System.out.println(t.getNome()); System.out.println();
+		 * 
+		 * for (Aluno aluno : turma) { System.out.println(aluno.getMatricula() + " - " +
+		 * aluno.getNome() + " - " + aluno.getCurso() + " - " + aluno.getMedia());
+		 * System.out.println(); }
+		 * 
+		 * for (Aluno aluno : alunos) { System.out.println(aluno.getMatricula() + " - "
+		 * + aluno.getNome() + " - " + aluno.getCurso() + " - " + aluno.getMedia());
+		 * System.out.println(); }
+		 * 
+		 */
+		TurmaDao tDao = new TurmaDao();
+		List<Aluno> alunos = new ArrayList<>();
 		Turma t = new Turma();
+		t.setAlunos(alunos);
+		t = tDao.listar();
 		
-		t.setNome("Turma1");
-		System.out.println(t.getNome());
-		System.out.println();
-		
-		for (Aluno aluno : turma) {
-			System.out.println(aluno.getMatricula() + " - " + aluno.getNome() + " - " + aluno.getCurso() + " - "
-					+ aluno.getMedia());
-			System.out.println();
-		}
-		
-		turma = tDao.listarPorNome();
-		t = new Turma();
-		
-		t.setNome("Turma1");
-		System.out.println(t.getNome());
-		System.out.println();
-		
-		for (Aluno aluno : turma) {
-			System.out.println(aluno.getMatricula() + " - " + aluno.getNome() + " - " + aluno.getCurso() + " - "
-					+ aluno.getMedia());
-			System.out.println();
-		}
-		
-		turma = tDao.listarPorMedia();
-		t = new Turma();
-		
-		t.setNome("Turma1");
-		System.out.println(t.getNome());
-		System.out.println();
-		
-		for (Aluno aluno : turma) {
-			System.out.println(aluno.getMatricula() + " - " + aluno.getNome() + " - " + aluno.getCurso() + " - "
-					+ aluno.getMedia());
-			System.out.println();
-		}
-		
-//		for (Aluno aluno : alunos) {
-//			System.out.println(aluno.getMatricula() + " - " + aluno.getNome() + " - " + aluno.getCurso() + " - "
-//					+ aluno.getMedia());
-//			System.out.println();
-//		}
 	}
 }

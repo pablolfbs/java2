@@ -5,14 +5,14 @@ import java.util.List;
 public class Turma {
 	
 	private String nome;
-	private List<Aluno> turma;
+	private List<Aluno> alunos;
 
-	public List<Aluno> getTurma() {
-		return turma;
+	public List<Aluno> getAlunos() {
+		return alunos;
 	}
 
-	public void setTurma(List<Aluno> turma) {
-		this.turma = turma;
+	public void setAlunos(List<Aluno> alunos) {
+		this.alunos = alunos;
 	}
 
 	public String getNome() {
@@ -22,7 +22,5 @@ public class Turma {
 	public void setNome(String nome) {
 		this.nome = nome;
 	}
-
 	
-
 }
