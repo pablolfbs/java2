@@ -73,7 +73,7 @@ public class Teste {
 		List<Aluno> alunos = new ArrayList<>();
 		Turma t = new Turma();
 		t.setAlunos(alunos);
-		t = tDao.listar();
+		// t = tDao.listar();
 		
 	}
 }
